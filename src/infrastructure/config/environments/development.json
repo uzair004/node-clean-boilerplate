@@ -1,0 +1,19 @@
+{
+  "version": "v0.0.5",
+  "port": 4000,
+  "ip": "127.0.0.1",
+  "db": {
+    "username": "",
+    "password": "",
+    "name": "",
+    "host": ""
+  },
+  "signIn": {
+    "secret": ""
+  },
+  "s3Bucket": {
+    "accessKeyId": "",
+    "secretAccessKey": "",
+    "bucketName": ""
+  }
+}
