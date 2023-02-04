@@ -22,6 +22,10 @@
   },
   "homepage": "https://github.com/uzair004/node-clean-boilerplate#readme",
   "dependencies": {
-    "convict": "^6.2.4"
+    "convict": "^6.2.4",
+    "sequelize": "^6.28.0"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.0"
   }
 }
