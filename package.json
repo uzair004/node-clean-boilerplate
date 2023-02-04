@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/uzair004/node-clean-boilerplate/issues"
   },
-  "homepage": "https://github.com/uzair004/node-clean-boilerplate#readme"
+  "homepage": "https://github.com/uzair004/node-clean-boilerplate#readme",
+  "dependencies": {
+    "convict": "^6.2.4"
+  }
 }
