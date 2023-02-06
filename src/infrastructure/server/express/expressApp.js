@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const expressLogger = require('express-bunyan-logger');
 const cors = require('cors');
 
-const routes = require('../../../adapters/routers');
+const setupRouter = require('../../../adapters/routers');
 
 module.exports = () => {
   const webFramework = express();
@@ -39,7 +39,7 @@ module.exports = () => {
   // webFramework.use(expressLogger.errorLogger());
   webFramework.use(cors());
 
-  webFramework.use(routes(webFramework));
+  webFramework.use(setupRouter(webFramework));
 
   // catch 404 later
   // webFramework.use((req, res, next) => next("Not Found"));

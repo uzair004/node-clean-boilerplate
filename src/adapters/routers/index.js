@@ -1,11 +1,19 @@
 const apiRouter = require('./apiRouter');
-const usersRouter = require('./usersRouter');
 
 module.exports = (webFramework) => {
   const router = webFramework.Router();
 
+  // Example routes
+  router.get('/', (req, res) => {
+    res.send('Welcome to the home page!');
+  });
+
+  router.get('/about', (req, res) => {
+    res.send('Learn more about us');
+  });
+
+  // api routes
   router.use('/api', apiRouter(webFramework));
-  router.use('/users', usersRouter(webFramework));
 
   return router;
 };
