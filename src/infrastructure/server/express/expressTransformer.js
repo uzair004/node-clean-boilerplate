@@ -35,8 +35,11 @@ const makeCallback = (controller) => async (req, res) => {
   } catch (err) {
     res.status(500).send({
       timestamp: new Date().valueOf(),
-      success: false,
-      error: { code: 'INTERNAL_ERROR', description: err.message },
+      error: {
+        code: 'INTERNAL_ERROR',
+        message: 'Something went wrong',
+        nerdInfo: err.message,
+      },
     });
   }
 };
