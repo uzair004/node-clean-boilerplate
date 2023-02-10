@@ -1,12 +1,14 @@
-module.exports = (webFramework) => {
+module.exports = ({ webFramework, transformer }) => {
   const router = webFramework.Router();
 
   // Define your user routes here
-  router.post('signup', () => console.log('signed up...'));
 
-  // some other router
-  // import whatever router
-  router.use('/whatever', 'whateverRouter(webFramework)');
+  router.post(
+    '/signup',
+    transformer((httpReq) => {
+      console.log('body: ', httpReq.body);
+    })
+  );
 
   return router;
 };

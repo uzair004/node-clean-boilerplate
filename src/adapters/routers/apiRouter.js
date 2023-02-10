@@ -1,14 +1,17 @@
 const userRouter = require('./userRouter');
 
-module.exports = (webFramework) => {
+module.exports = ({ webFramework, transformer }) => {
   const router = webFramework.Router();
 
   // Define your API routes here
-  router.get('/version', (req, res) => {
-    res.send('api version');
-  });
+  router.get(
+    '/version',
+    transformer((httpReq) => {
+      console.log('params: ', httpReq.params);
+    })
+  );
 
-  router.use('/users', userRouter(webFramework));
+  router.use('/users', userRouter({ webFramework, transformer }));
 
   return router;
 };
