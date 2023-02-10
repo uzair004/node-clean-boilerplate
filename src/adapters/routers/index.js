@@ -8,12 +8,12 @@ module.exports = ({ webFramework }) => {
   // Example routes
   router.get(
     '/',
-    transformer((httpReq) => {
+    transformer(async (httpReq) => {
       console.log('params: ', httpReq.params);
     })
   );
 
-  router.get('/about', (req, res) => {
+  router.get('/about', async (req, res) => {
     res.send('Learn more about us');
   });
 

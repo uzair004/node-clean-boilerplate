@@ -3,12 +3,13 @@ module.exports = ({ webFramework, transformer }) => {
 
   // Define your user routes here
 
-  router.post(
-    '/signup',
-    transformer((httpReq) => {
-      console.log('body: ', httpReq.body);
-    })
-  );
+  router.post('/signup', transformer(signUpController));
 
   return router;
 };
+
+async function signUpController() {
+  return {
+    statusCode: 200,
+  };
+}

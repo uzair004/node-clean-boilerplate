@@ -6,7 +6,7 @@ module.exports = ({ webFramework, transformer }) => {
   // Define your API routes here
   router.get(
     '/version',
-    transformer((httpReq) => {
+    transformer(async (httpReq) => {
       console.log('params: ', httpReq.params);
     })
   );
