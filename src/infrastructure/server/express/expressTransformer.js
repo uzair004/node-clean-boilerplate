@@ -39,4 +39,4 @@ const makeCallback = (controller) => (req, res) => {
     });
 };
 
-module.exports = { makeCallback };
+module.exports = makeCallback;
