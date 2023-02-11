@@ -1,4 +1,5 @@
 const userRouter = require('./userRouter');
+const authRouter = require('./authRouter');
 
 module.exports = ({ webFramework, transformer }) => {
   const router = webFramework.Router();
@@ -10,6 +11,8 @@ module.exports = ({ webFramework, transformer }) => {
       console.log('params: ', httpReq.params);
     })
   );
+
+  router.use('/auth', authRouter({ webFramework, transformer }));
 
   router.use('/users', userRouter({ webFramework, transformer }));
 
