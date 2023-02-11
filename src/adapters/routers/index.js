@@ -7,15 +7,16 @@ module.exports = ({ webFramework }) => {
 
   // Example routes
   router.get(
-    '/',
-    transformer(async (httpReq) => {
-      console.log('params: ', httpReq.params);
+    '/about',
+    transformer(async (req, res) => {
+      return {
+        statusCode: 200,
+        body: {
+          data: { message: 'about us' },
+        },
+      };
     })
   );
-
-  router.get('/about', async (req, res) => {
-    res.send('Learn more about us');
-  });
 
   // api routes
   router.use('/api', apiRouter({ webFramework, transformer }));
