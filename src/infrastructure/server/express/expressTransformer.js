@@ -1,5 +1,5 @@
 const makeCallback = (controller) => async (req, res) => {
-  const httpRequest = {
+  const httpReq = {
     body: req.body,
     query: req.query,
     params: req.params,
@@ -20,7 +20,7 @@ const makeCallback = (controller) => async (req, res) => {
   };
 
   try {
-    const httpResponse = await controller(httpRequest);
+    const httpResponse = await controller(httpReq);
 
     if (httpResponse.headers) {
       res.set(httpResponse.headers);
