@@ -1,4 +1,4 @@
-const { signUpC } = require('../controllers/');
+const { signUpC } = require('../../../../adapters/controllers');
 
 module.exports = ({ webFramework, transformer }) => {
   const router = webFramework.Router();

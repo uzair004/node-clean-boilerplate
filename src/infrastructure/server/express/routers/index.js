@@ -1,4 +1,4 @@
-const transformer = require('../../infrastructure/server/express/expressTransformer');
+const transformer = require('../expressTransformer');
 
 const apiRouter = require('./apiRouter');
 

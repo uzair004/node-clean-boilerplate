@@ -6,7 +6,6 @@ const makeCallback = (controller) => async (req, res) => {
     ip: req.ip,
     method: req.method,
     path: req.path,
-    user: req.user,
     logger: req.logger,
     source: {
       ip: req.ip,
@@ -19,8 +18,13 @@ const makeCallback = (controller) => async (req, res) => {
     },
   };
 
+  // something added by middleware should go here
+  const context = {
+    test: req.test,
+  };
+
   try {
-    const httpResponse = await controller(httpReq);
+    const httpResponse = await controller(httpReq, context);
 
     if (httpResponse.headers) {
       res.set(httpResponse.headers);

@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const expressLogger = require('express-bunyan-logger');
 const cors = require('cors');
 
-const setupRouter = require('../../../adapters/routers');
+const setupRouter = require('./routers');
 
 module.exports = () => {
   const app = express();
