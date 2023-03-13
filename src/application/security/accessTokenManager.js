@@ -1,9 +1,23 @@
-module.exports = class {
-  generate() {
-    throw new Error('ERR_METHOD_NOT_IMPLEMENTED');
-  }
+async function makeGenerateTokenInf(generateTokenImp) {
+  return async function generateTokenInf() {
+    return generateTokenImp();
+  };
+}
 
-  decode() {
-    throw new Error('ERR_METHOD_NOT_IMPLEMENTED');
-  }
+async function makeDecodeTokenInf(decodeTokenImp) {
+  return async function decodeTokenInf() {
+    return decodeTokenImp();
+  };
+}
+
+async function makeVerifyTokenInf(verifyTokenImp) {
+  return async function verifyTokenInf() {
+    return verifyTokenImp();
+  };
+}
+
+module.exports = {
+  makeGenerateTokenInf,
+  makeDecodeTokenInf,
+  makeVerifyTokenInf,
 };

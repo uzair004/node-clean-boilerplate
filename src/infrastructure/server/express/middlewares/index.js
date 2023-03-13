@@ -1,9 +1,13 @@
+const {
+  decodeTokenInf,
+  verifyTokenInf,
+} = require('../../../../application/security');
+
 const makeAuthenticateUser = require('./authenticateUser');
 
 const authenticateUser = makeAuthenticateUser({
-  decodeToken,
-  verifyToken,
-  getAuthorizationToken,
+  decodeTokenInf,
+  verifyTokenInf,
 });
 
 module.exports = { authenticateUser };

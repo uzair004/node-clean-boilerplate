@@ -1,21 +1,15 @@
 'use strict';
 
-const { authenticateUser } = require('.');
-
-function makeAuthenticateUser({
-  decodeToken,
-  verifyToken,
-  getAuthorizationToken,
-}) {
+function makeAuthenticateUser({ decodeTokenInf, verifyTokenInf }) {
   return async function authenticateUser(req, res, next) {
     try {
-      const token = getAuthorizationToken(req);
+      const token = req.headers.Authorization.split(' ')[1];
 
       if (!token) throw new Error('Missing Token');
 
-      verifyToken({ token });
+      verifyTokenInf({ token });
 
-      const tokenContent = decodeToken({ token });
+      const tokenContent = decodeTokenInf({ token });
 
       const { userId } = tokenContent;
 
