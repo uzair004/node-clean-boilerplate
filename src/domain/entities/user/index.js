@@ -1,7 +1,11 @@
-// user entities related factories will be imported & initialized here
-// e.g makeBuildUser factory should we provided neccessary dependencies & exported
+// import dependencies
+const { makeId } = require('../../utils');
 
-// const {makeBuildUser} = require('/user.js')
-// const makeUser = makeBuildUser({makeTs, makeId})
+// import domain entity factory
+const buildMakeUser = require('./user');
 
-// module.exports = {makeUser}
+// initialize, provide dependencies
+const makeUser = buildMakeUser({ makeId });
+
+// export instance
+module.exports = { makeUser };
