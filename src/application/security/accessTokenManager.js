@@ -1,6 +1,6 @@
 function makeGenerateTokenInf(generateTokenImp) {
-  return function generateTokenInf({}) {
-    return generateTokenImp({});
+  return function generateTokenInf({ id }) {
+    return generateTokenImp({ id });
   };
 }
 
