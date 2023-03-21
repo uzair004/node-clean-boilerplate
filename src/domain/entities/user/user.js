@@ -13,7 +13,16 @@ function buildMakeUser({ makeId }) {
       getPassword: () => password,
       getPermissions: () => permissions,
 
+      hasRequiredAtts: function () {
+        if (!this.getId()) return false;
+        else return true;
+      },
+
       getItem: function () {
+        if (!this.hasRequiredAtts()) {
+          return undefined;
+        }
+
         return {
           id: this.getId(),
           email: this.getEmail(),
