@@ -1,4 +1,4 @@
-const makeSignUpUC = ({ isValidEmail, isValidPassword }) => {
+const makeSignUpUC = ({ isValidEmail, isValidPassword, makeUser }) => {
   return async function signUpUC(requestInfo) {
     const { email, password } = requestInfo;
 
@@ -27,18 +27,16 @@ const makeSignUpUC = ({ isValidEmail, isValidPassword }) => {
       };
     }
 
-    // TODO: user with this email already not exist in db
+    const userInfo = { email, password };
+    const user = makeUser(userInfo); // user domain entity
 
     // TODO: add user to db
+    // i.e userDb.createUser(user.getItem())
 
     return {
       statusCode: 200,
       body: {
-        data: {
-          id: '101',
-          username: 'user1123232',
-          email: email,
-        }, // TODO: replace with created user
+        data: user.getItem(),
       },
     };
   };

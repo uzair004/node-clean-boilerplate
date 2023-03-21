@@ -2,6 +2,8 @@
 
 const { generateTokenInf } = require('../../application/security');
 
+const { makeUser } = require('../../domain/entities/user');
+
 // import dependencies
 const { isValidEmail, isValidPassword } = require('../utils');
 
@@ -15,6 +17,7 @@ const signUpUC = makeSignUpUC({
   isValidEmail,
   isValidPassword,
   generateTokenInf,
+  makeUser,
 });
 const getProfileUC = makeGetProfileUC({});
 
