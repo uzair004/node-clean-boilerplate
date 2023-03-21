@@ -1,18 +1,18 @@
-async function makeGenerateTokenInf(generateTokenImp) {
-  return async function generateTokenInf() {
-    return generateTokenImp();
+function makeGenerateTokenInf(generateTokenImp) {
+  return function generateTokenInf({}) {
+    return generateTokenImp({});
   };
 }
 
-async function makeDecodeTokenInf(decodeTokenImp) {
-  return async function decodeTokenInf() {
-    return decodeTokenImp();
+function makeDecodeTokenInf(decodeTokenImp) {
+  return function decodeTokenInf(token) {
+    return decodeTokenImp(token);
   };
 }
 
-async function makeVerifyTokenInf(verifyTokenImp) {
-  return async function verifyTokenInf() {
-    return verifyTokenImp();
+function makeVerifyTokenInf(verifyTokenImp) {
+  return function verifyTokenInf(token) {
+    return verifyTokenImp(token);
   };
 }
 
