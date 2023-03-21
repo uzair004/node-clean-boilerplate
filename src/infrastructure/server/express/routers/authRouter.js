@@ -1,4 +1,4 @@
-const { signUpC } = require('../../../../adapters/controllers');
+const { signUpC, signInC } = require('../../../../adapters/controllers');
 
 module.exports = ({ webFramework, transformer }) => {
   const router = webFramework.Router();
@@ -7,7 +7,7 @@ module.exports = ({ webFramework, transformer }) => {
 
   router.post('/signup', transformer(signUpC));
 
-  //   router.post('/signIn', transformer(signInC));
+  router.post('/signIn', transformer(signInC));
 
   return router;
 };

@@ -3,13 +3,13 @@
 function makeAuthenticateUser({ decodeTokenInf, verifyTokenInf }) {
   return async function authenticateUser(req, res, next) {
     try {
-      const token = req.headers.Authorization.split(' ')[1];
+      const token = req.headers.authorization.split(' ')[1];
 
       if (!token) throw new Error('Missing Token');
 
-      verifyTokenInf({ token });
+      verifyTokenInf(token);
 
-      const tokenContent = decodeTokenInf({ token });
+      const tokenContent = decodeTokenInf(token);
 
       const { userId } = tokenContent;
 

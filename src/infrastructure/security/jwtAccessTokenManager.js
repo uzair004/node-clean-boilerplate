@@ -10,7 +10,7 @@ const decodeTokenImp = (accessToken) => jwt.decode(accessToken);
 
 const verifyTokenImp = (token) => {
   try {
-    jwt.verify(token, process.env.JWT_SECRET);
+    jwt.verify(token, JWT_SECRET_KEY);
   } catch (e) {
     console.error(e);
     throw String(e) ?? 'Could Not Verify Authenticity of the token';
