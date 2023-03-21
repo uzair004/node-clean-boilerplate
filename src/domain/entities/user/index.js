@@ -1,5 +1,5 @@
 // import dependencies
-const { makeId } = require('../../utils');
+const { makeId } = require('../../domainUtils');
 
 // import domain entity factory
 const buildMakeUser = require('./user');
