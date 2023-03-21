@@ -20,7 +20,7 @@ const makeCallback = (controller) => async (req, res) => {
 
   // something added by middleware should go here
   const context = {
-    test: req.test,
+    user: req.user,
   };
 
   try {
