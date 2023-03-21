@@ -1,13 +1,12 @@
 const makeGetProfileC = ({ getProfileUC }) => {
   return async function getProfileC(httpReq, context) {
     try {
-      console.log('inside controller');
       const { source, params } = httpReq;
-      const { test } = context;
+      const { user } = context;
 
       const { id } = params;
 
-      const result = await getProfileUC({ id, test });
+      const result = await getProfileUC({ id, user });
 
       return result;
     } catch (err) {

@@ -27,6 +27,13 @@ const makeSignInUC = ({ isValidEmail, isValidPassword, generateTokenInf }) => {
       };
     }
 
+    // user should be returned by user domain with all getters & setters
+    // i.e const userInfo = {email, password}
+    // const user = makeUser(userInfo)
+
+    // insert user in db using data access layer
+    // i.e await userDb.createUser(user.getItem())
+
     //
     return {
       statusCode: 200,
@@ -35,7 +42,7 @@ const makeSignInUC = ({ isValidEmail, isValidPassword, generateTokenInf }) => {
           id: '101',
           username: 'user1123232',
           email: email,
-          token: generateTokenInf({}),
+          token: generateTokenInf({ id: '101' }), // send any info you want to encode in token, i.e userId
         }, // TODO: replace with created user
       },
     };
