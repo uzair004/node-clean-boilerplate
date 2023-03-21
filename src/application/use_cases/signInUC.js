@@ -1,4 +1,9 @@
-const makeSignInUC = ({ isValidEmail, isValidPassword, generateTokenInf }) => {
+const makeSignInUC = ({
+  isValidEmail,
+  isValidPassword,
+  generateTokenInf,
+  makeUser,
+}) => {
   return async function signInUC(requestInfo) {
     const { email, password } = requestInfo;
 
@@ -27,23 +32,24 @@ const makeSignInUC = ({ isValidEmail, isValidPassword, generateTokenInf }) => {
       };
     }
 
-    // user should be returned by user domain with all getters & setters
-    // i.e const userInfo = {email, password}
-    // const user = makeUser(userInfo)
+    // get user from db
+    // i.e const userInfo = userDb.findUser({email})
+    // if user doesn't exist return 404
 
-    // insert user in db using data access layer
-    // i.e await userDb.createUser(user.getItem())
+    const userInfo = { email, password };
+    const user = makeUser(userInfo);
+
+    // if(!user.getItem()) return incomplete info
+    // entity getItem can contain system enforced rules. i.e id,version should be there
 
     //
     return {
       statusCode: 200,
       body: {
         data: {
-          id: '101',
-          username: 'user1123232',
-          email: email,
-          token: generateTokenInf({ id: '101' }), // send any info you want to encode in token, i.e userId
-        }, // TODO: replace with created user
+          ...user.getItem(),
+          token: generateTokenInf({ id: '101' }),
+        },
       },
     };
 
