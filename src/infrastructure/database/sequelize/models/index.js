@@ -7,7 +7,7 @@ const basename = path.basename(__filename);
 const config = require('../../../config');
 const db = {};
 
-let sequelize = new Sequelize(
+const sequelize = new Sequelize(
   config.get('db.name'),
   config.get('db.username'),
   config.get('db.password'),
@@ -25,7 +25,7 @@ fs.readdirSync(__dirname)
   })
   .forEach((file) => {
     const model = sequelize['import'](path.join(__dirname, file));
-    let name = upperFirst(camelCase(model.name));
+    const name = upperFirst(camelCase(model.name));
     db[name] = model;
   });
 
@@ -47,6 +47,7 @@ function upperFirst(str) {
 function camelCase(str) {
   return str
     .replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
+      // eslint-disable-next-line no-ternary
       return index === 0 ? word.toLowerCase() : word.toUpperCase();
     })
     .replace(/\s+/g, '');

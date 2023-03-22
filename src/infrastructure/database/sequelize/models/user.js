@@ -1,3 +1,5 @@
+const moment = require('moment');
+
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('user', {
     id: {
@@ -20,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     u.dataValues.updatedAt = moment().unix();
   });
 
-  User.associate = (models) => {};
+  User.associate = (/*models*/) => {};
 
   return User;
 };

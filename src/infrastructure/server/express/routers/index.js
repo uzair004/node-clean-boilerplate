@@ -8,7 +8,7 @@ module.exports = ({ webFramework }) => {
   // Example routes
   router.get(
     '/about',
-    transformer(async (req, res) => {
+    transformer(async (/*req, res*/) => {
       return {
         statusCode: 200,
         body: {

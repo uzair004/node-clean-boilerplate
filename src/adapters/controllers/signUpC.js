@@ -1,7 +1,7 @@
 const makeSignUpC = ({ missingItem, isEmptyObj, containsSpaces, signUpUC }) => {
   return async function signUpC(httpReq) {
     try {
-      const { body, source } = httpReq;
+      const { body /*source*/ } = httpReq;
 
       if (!body || isEmptyObj(body)) {
         return missingItem('Body');

@@ -1,6 +1,6 @@
-const makeGetProfileUC = ({}) => {
+const makeGetProfileUC = (/*{}*/) => {
   return async function getProfileUC(requestInfo) {
-    const { id, user } = requestInfo;
+    const { /*id,*/ user } = requestInfo;
 
     return {
       statusCode: 200,
