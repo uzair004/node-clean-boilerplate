@@ -1,7 +1,5 @@
-// import all data access, initialize & export them
+const makeUserDA = require('./user_data_access/mySqlUserDb');
 
-// const { buildMakeUserDb } = require('./userDataAccess/mySqlUserDb.js)
+const userDA = makeUserDA({});
 
-// if needed to change db implementation we can replace above import with another mongoUserDb.js to provide mongoDB implementation
-
-// const makeUserDb = buildMakeUserDb({...})
+module.exports = { userDA };
