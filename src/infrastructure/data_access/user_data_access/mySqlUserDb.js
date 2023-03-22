@@ -1,6 +1,6 @@
 // db methods related to user that uses mysql/sequelize
 
-const { User } = require('../../database/sequelize/models/user'); // Assuming you have defined Sequelize models in models.js
+const { User } = require('../../database/sequelize/models'); // Assuming you have defined Sequelize models in models.js
 
 function makeUserDA({}) {
   return Object.freeze({
