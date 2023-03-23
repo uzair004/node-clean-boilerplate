@@ -1,7 +1,7 @@
 const makeGetProfileC = ({ getProfileUC }) => {
   return async function getProfileC(httpReq, context) {
     try {
-      const { source, params } = httpReq;
+      const { /*source,*/ params } = httpReq;
       const { user } = context;
 
       const { id } = params;
