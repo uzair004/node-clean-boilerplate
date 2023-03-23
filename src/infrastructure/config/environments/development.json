@@ -3,10 +3,10 @@
   "port": 4000,
   "ip": "127.0.0.1",
   "db": {
-    "username": "",
-    "password": "",
-    "name": "",
-    "host": ""
+    "username": "root",
+    "password": "root",
+    "name": "clean_boilerplate_db",
+    "host": "127.0.0.1"
   },
   "signIn": {
     "secret": ""
