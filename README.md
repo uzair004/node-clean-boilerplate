@@ -23,7 +23,7 @@ src
 ```
 
 
-### Contributions
+## Contributions
 Please look into [Issue Section](https://github.com/uzair004/node-clean-boilerplate/issues) to contribute to this boilerplate.
 
 
