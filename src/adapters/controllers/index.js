@@ -1,5 +1,5 @@
 // import dependencies
-const { missingItem, isEmptyObj, containsSpaces } = require('../utils');
+const { missingItem, isEmptyObj, containsSpaces } = require('../adapterUtils');
 
 const {
   signUpUC,

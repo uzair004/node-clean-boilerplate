@@ -5,7 +5,7 @@ const { generateTokenInf } = require('../../application/security');
 const { makeUser } = require('../../domain/entities/user');
 
 // import dependencies
-const { isValidEmail, isValidPassword } = require('../utils');
+const { isValidEmail, isValidPassword } = require('../appUtils');
 
 // import use case factory
 const makeSignUpUC = require('./signUpUC');
