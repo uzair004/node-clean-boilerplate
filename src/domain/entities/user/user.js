@@ -14,7 +14,7 @@ function buildMakeUser({ makeId }) {
       getPermissions: () => permissions,
 
       hasRequiredAtts: function () {
-        if (!this.getId()) return false;
+        if (!this.getId() || !this.getEmail()) return false;
         else return true;
       },
 

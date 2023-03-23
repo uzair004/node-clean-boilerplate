@@ -29,6 +29,8 @@ const signInUC = makeSignInUC({
   isValidEmail,
   isValidPassword,
   generateTokenInf,
+  makeUser,
+  userRepo,
 });
 
 // export use case

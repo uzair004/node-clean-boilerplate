@@ -3,6 +3,7 @@ const makeSignInUC = ({
   isValidPassword,
   generateTokenInf,
   makeUser,
+  userRepo,
 }) => {
   return async function signInUC(requestInfo) {
     const { email, password } = requestInfo;
@@ -32,15 +33,24 @@ const makeSignInUC = ({
       };
     }
 
-    // get user from db
-    // i.e const userInfo = userDb.findUser({email})
-    // if user doesn't exist return 404
+    const userInfo = await userRepo.findOneByProperty({
+      property: 'email',
+      value: email,
+    });
 
-    const userInfo = { email, password };
     const user = makeUser(userInfo);
 
-    // if(!user.getItem()) return incomplete info
-    // entity getItem can contain system enforced rules. i.e id,version should be there
+    if (!user.getItem()) {
+      return {
+        statusCode: 404,
+        body: {
+          error: {
+            code: 'RESOURCE_NOT_FOUND',
+            message: 'User Not Found',
+          },
+        },
+      };
+    }
 
     //
     return {
@@ -48,7 +58,7 @@ const makeSignInUC = ({
       body: {
         data: {
           ...user.getItem(),
-          token: generateTokenInf({ id: '101' }),
+          token: generateTokenInf({ id: user.getId() }),
         },
       },
     };
