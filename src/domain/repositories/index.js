@@ -2,6 +2,6 @@ const { makeUserRepository } = require('./userRepository');
 
 const { userDA } = require('../../infrastructure/data_access');
 
-const userRepository = makeUserRepository({ userDA });
+const userRepo = makeUserRepository({ userDA });
 
-module.exports = { userRepository };
+module.exports = { userRepo };

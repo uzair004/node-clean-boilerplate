@@ -7,6 +7,9 @@ const { makeUser } = require('../../domain/entities/user');
 // import dependencies
 const { isValidEmail, isValidPassword } = require('../appUtils');
 
+// repositories
+const { userRepo } = require('../../domain/repositories');
+
 // import use case factory
 const makeSignUpUC = require('./signUpUC');
 const makeGetProfileUC = require('./getProfileUC');
@@ -18,6 +21,7 @@ const signUpUC = makeSignUpUC({
   isValidPassword,
   generateTokenInf,
   makeUser,
+  userRepo,
 });
 const getProfileUC = makeGetProfileUC({});
 

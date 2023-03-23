@@ -1,4 +1,9 @@
-const makeSignUpUC = ({ isValidEmail, isValidPassword, makeUser }) => {
+const makeSignUpUC = ({
+  isValidEmail,
+  isValidPassword,
+  makeUser,
+  userRepo,
+}) => {
   return async function signUpUC(requestInfo) {
     const { email, password } = requestInfo;
 
@@ -30,8 +35,7 @@ const makeSignUpUC = ({ isValidEmail, isValidPassword, makeUser }) => {
     const userInfo = { email, password };
     const user = makeUser(userInfo); // user domain entity
 
-    // TODO: add user to db
-    // i.e userDb.createUser(user.getItem())
+    await userRepo.createUser(user.getItem());
 
     return {
       statusCode: 200,
