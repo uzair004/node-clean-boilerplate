@@ -9,7 +9,7 @@ module.exports = () => {
   const app = express();
 
   process.on('uncaughtException', (e) => {
-    console.log(e);
+    console.error(e);
   });
 
   app.use(bodyParser.json({ limit: '10mb' }));
