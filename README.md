@@ -1,6 +1,11 @@
 # node-clean-boilerplate
  nodejs boilerplate that follows Clean Architecture principles
  
+ ## Clean Architecture ?
+ if you are not familiar with clean & its principles, following presentation plus docs of this repo could help you grasp some concepts.
+[Clean Architecture Keynote](https://www.linkedin.com/posts/uzair004_clean-architecture-activity-7044745268042293248-6CWx?utm_source=share&utm_medium=member_desktop)
+
+ 
  
  ### Inspirations
  #### Repos
