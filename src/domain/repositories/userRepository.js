@@ -23,12 +23,17 @@ function makeUserRepository({ userDA }) {
     return userDA.findAllUsers();
   }
 
+  async function findOneByProperty({ property, value }) {
+    return userDA.findOneByProperty({ property, value });
+  }
+
   return {
     createUser,
     updateUser,
     deleteUser,
     findUserById,
     findAllUsers,
+    findOneByProperty,
   };
 }
 

@@ -9,6 +9,7 @@ function makeUserDA({}) {
     deleteUser,
     findUserById,
     findAllUsers,
+    findOneByProperty,
   });
 }
 
@@ -37,6 +38,13 @@ async function findUserById(userId) {
 async function findAllUsers() {
   const users = await User.findAll();
   return users.map((user) => user.toJSON());
+}
+
+async function findOneByProperty({ property, value }) {
+  const whereClause = { [property]: value };
+  const user = await User.findOne({ where: whereClause });
+  if (user) return user.toJSON();
+  else return undefined;
 }
 
 module.exports = makeUserDA;
