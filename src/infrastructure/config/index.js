@@ -1,7 +1,7 @@
 const convict = require('convict');
 
 // Define a schema
-var config = convict({
+const config = convict({
   env: {
     doc: 'The application environment.',
     format: ['production', 'development', 'test', 'staging'],
@@ -78,7 +78,7 @@ var config = convict({
 });
 
 // Load environment dependent configuration
-let env = config.get('env');
+const env = config.get('env');
 if (env) {
   config.loadFile(__dirname + '/environments/' + env + '.json');
 }
