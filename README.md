@@ -5,6 +5,24 @@
  if you are not familiar with clean & its principles, following presentation plus docs of this repo could help you grasp some concepts.
 [Clean Architecture Keynote](https://www.linkedin.com/posts/uzair004_clean-architecture-activity-7044745268042293248-6CWx?utm_source=share&utm_medium=member_desktop)
 
+
+## Project structure
+
+```
+src
+ └ adapters                → presentation layer to external world, controllers, serializer (formatter) & routes
+   └ controllers           → recieve request from routes, send response back, forward req to usecase
+   └ serializers           → format/structurize output for frontend
+ └ application             → app specific logic, usecases(orchestrate the flow), security
+   └ security              → abstraction/interface for security & Auth
+   └ usecase               → controls business flow, take cross entity actions
+ └ domain                  → core business rules, entities
+   └ entities              → core entities with business rules & constraints, i.e user, order
+   └ repositories          → abstractions for database access calls
+ └ infrastructure          → external libraries, frameworks, databases & tools implementations
+```
+
+
  
  
  ### Inspirations
