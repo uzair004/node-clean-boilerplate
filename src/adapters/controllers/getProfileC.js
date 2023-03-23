@@ -8,6 +8,8 @@ const makeGetProfileC = ({ getProfileUC }) => {
 
       const result = await getProfileUC({ id, user });
 
+      // pass result to userSerializer, get back filtered & formatted data for frontend
+
       return result;
     } catch (err) {
       console.error(err);
