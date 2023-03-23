@@ -10,13 +10,13 @@ const config = convict({
   },
   ip: {
     doc: 'The IP address to bind.',
-    format: 'ipaddress',
+    format: String,
     default: '127.0.0.1',
     env: 'IP_ADDRESS',
   },
   port: {
     doc: 'The port to bind.',
-    format: 'port',
+    format: Number,
     default: 8080,
     env: 'PORT',
     arg: 'port',
